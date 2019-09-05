@@ -13,6 +13,11 @@ export interface ServerBuilder {
 
   addLogger(type: LoggerKeys, opts?: morgan.Options): ServerBuilder;
 
+  addRoute(
+    path: string,
+    handler: express.Router | express.Handler
+  ): ServerBuilder;
+
   build(): Express;
 }
 
@@ -31,6 +36,15 @@ export class ServerBuilder implements ServerBuilder {
 
   public addCompression(): this {
     this._server.use(compression());
+
+    return this;
+  }
+
+  public addRoute(
+    path: string,
+    handler: express.Router | express.Handler
+  ): this {
+    this._server.use(path, handler);
 
     return this;
   }

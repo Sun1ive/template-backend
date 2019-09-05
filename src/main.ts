@@ -1,15 +1,19 @@
+import 'reflect-metadata';
+
 import { ServerBuilder } from './factories/server';
 import { Config } from './config';
 import { cpus } from 'os';
 import { pid } from 'process';
 import { Server } from 'http';
 import cluster from 'cluster';
+import { initDB } from './db/connection';
 
 function buildServer(port: number | string = 3001): Server {
   const app = new ServerBuilder()
     .addCompression()
     .addCors()
     .addLogger('dev')
+    .addRoute('/test', (_, res) => res.send('eeee'))
     .build()
     .listen(port, () =>
       console.log('Server with pid %s running at port %s', pid, port)
@@ -35,5 +39,9 @@ if (process.env.NODE_ENV === 'production') {
     buildServer();
   }
 } else {
-  buildServer(Config.serverOptions.port);
+  (async () => {
+    buildServer(Config.serverOptions.PORT);
+
+    await initDB();
+  })();
 }
