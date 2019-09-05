@@ -1,8 +1,9 @@
 import { ServerBuilder } from './factories/server';
+import { Config } from './config';
 import { cpus } from 'os';
 import { pid } from 'process';
-import cluster from 'cluster';
 import { Server } from 'http';
+import cluster from 'cluster';
 
 function buildServer(port: number | string = 3001): Server {
   const app = new ServerBuilder()
@@ -34,5 +35,5 @@ if (process.env.NODE_ENV === 'production') {
     buildServer();
   }
 } else {
-  buildServer(3003);
+  buildServer(Config.serverOptions.port);
 }
