@@ -24,8 +24,7 @@ function buildServer(port: number | string = 3001): Server {
 
 if (process.env.NODE_ENV === 'production') {
   if (cluster.isMaster) {
-    const cpusCount = cpus().length;
-    for (let index = 0; index < cpusCount - 1; index++) {
+    for (let i = 0; i < cpus().length - 1; i++) {
       const worker = cluster.fork();
 
       worker.on('exit', () => {
@@ -36,7 +35,7 @@ if (process.env.NODE_ENV === 'production') {
   }
 
   if (cluster.isWorker) {
-    buildServer();
+    buildServer(Config.serverOptions.PORT);
   }
 } else {
   (async () => {
