@@ -8,14 +8,15 @@ import { Product } from '../src/models/product.entity';
 
 export interface IProduct {
   name: string;
-  id: string;
-  price: string;
-  productAdjective: string;
+  categoryId: string;
+  price: number;
 }
 
 export interface ICategory {
   name: string;
+  id: string;
 }
+
 describe('testing database models', () => {
   let connection: Connection | undefined;
   let filteredCategories: Array<ICategory>;
@@ -34,15 +35,9 @@ describe('testing database models', () => {
       synchronize: true
     });
 
-    filteredCategories = Array.from(
-      new Set<string>(
-        JSON.parse(
-          readFileSync(resolve('tests/mocks/categories.json'), 'utf8')
-        ).map((k: { name: string }) => k.name)
-      )
-    ).map(n => ({
-      name: n
-    }));
+    filteredCategories = JSON.parse(
+      readFileSync(resolve('tests/mocks/categories.json'), 'utf8')
+    );
 
     products = JSON.parse(
       readFileSync(resolve('tests/mocks/products.json'), 'utf8')
@@ -93,21 +88,22 @@ describe('testing database models', () => {
     const connection = getConnection();
     const categoryRepo = connection.getRepository(Category);
     const prodRepo = connection.getRepository(Product);
-    const res1 = await connection
+
+    const values = products.map(prod =>
+      prodRepo.create({
+        name: prod.name,
+        price: prod.price,
+        category: categoryRepo.create({
+          id: prod.categoryId
+        })
+      })
+    );
+
+    await connection
       .createQueryBuilder()
-      .from(Category, 'c')
-      .select(['c.id', 'c.name'])
-      .getMany();
-
-    console.log(res1);
-    const values = products.map(p => {
-      const id = res1.find(
-        category => category.name === p.productAdjective
-      ) as Category;
-
-      console.log(id);
-    });
-
-    // console.log(values);
+      .insert()
+      .into(Product)
+      .values(values)
+      .execute();
   });
 });

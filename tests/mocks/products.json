@@ -1,296 +1,37 @@
 [
   {
-    "name": "Gloves",
-    "id": "6d8cb698-8012-4824-b510-9697c5612a37",
-    "price": "890.00",
-    "productAdjective": "Sleek"
+    "categoryId": "66b2be0a-eab3-490a-9b1d-6887cff531ab",
+    "name": "Handcrafted Metal Tuna",
+    "price": 833.0
   },
   {
-    "name": "Salad",
-    "id": "8e0b52bc-dd1b-420e-8625-9c36101a6ef2",
-    "price": "220.00",
-    "productAdjective": "Incredible"
+    "categoryId": "66b2be0a-eab3-490a-9b1d-6887cff531ab",
+    "name": "Gorgeous Granite Keyboard",
+    "price": 860.0
   },
   {
-    "name": "Pizza",
-    "id": "138d3eec-423c-4ea5-9d02-a64d28ae1cbe",
-    "price": "691.00",
-    "productAdjective": "Practical"
+    "categoryId": "66b2be0a-eab3-490a-9b1d-6887cff531ab",
+    "name": "Ergonomic Frozen Mouse",
+    "price": 44.0
   },
   {
-    "name": "Cheese",
-    "id": "13a12b27-86bd-48fe-bef7-6feaf0ef2513",
-    "price": "40.00",
-    "productAdjective": "Handcrafted"
+    "categoryId": "425d97d3-ee6e-4fb9-a3cc-ef30a67f1368",
+    "name": "Fantastic Soft Sausages",
+    "price": 823.0
   },
   {
-    "name": "Hat",
-    "id": "45ab829d-cb53-44a9-ada3-48381a468fea",
-    "price": "371.00",
-    "productAdjective": "Small"
+    "categoryId": "425d97d3-ee6e-4fb9-a3cc-ef30a67f1368",
+    "name": "Fantastic Rubber Chicken",
+    "price": 568.0
   },
   {
-    "name": "Table",
-    "id": "7f7e8376-2726-4feb-90c3-50a4984bc080",
-    "price": "430.00",
-    "productAdjective": "Intelligent"
+    "categoryId": "778b5e83-dd70-45b3-abb2-3fc0fb0fa46c",
+    "name": "Unbranded Frozen Mouse",
+    "price": 284.0
   },
   {
-    "name": "Table",
-    "id": "9d5bf701-3624-4943-8496-7acbb526aef8",
-    "price": "693.00",
-    "productAdjective": "Intelligent"
-  },
-  {
-    "name": "Pizza",
-    "id": "b1f3b3e0-3209-4295-b904-bcd11a871bad",
-    "price": "431.00",
-    "productAdjective": "Awesome"
-  },
-  {
-    "name": "Car",
-    "id": "9fcd373f-d1d9-4392-9699-fa45904e714f",
-    "price": "254.00",
-    "productAdjective": "Handcrafted"
-  },
-  {
-    "name": "Chicken",
-    "id": "194b3fe5-4ece-424b-98c0-e750140a1891",
-    "price": "552.00",
-    "productAdjective": "Rustic"
-  },
-  {
-    "name": "Chips",
-    "id": "d17cda10-cb4d-48bf-8264-f5f4d7d42573",
-    "price": "54.00",
-    "productAdjective": "Sleek"
-  },
-  {
-    "name": "Car",
-    "id": "266979fe-7374-41bb-b3a6-dad052c59aab",
-    "price": "279.00",
-    "productAdjective": "Refined"
-  },
-  {
-    "name": "Salad",
-    "id": "270f1711-b42c-45a3-a924-7e1a4c834c4b",
-    "price": "5.00",
-    "productAdjective": "Handmade"
-  },
-  {
-    "name": "Gloves",
-    "id": "2f3562ad-9c77-48ae-9b8c-6dd105471d7e",
-    "price": "362.00",
-    "productAdjective": "Tasty"
-  },
-  {
-    "name": "Gloves",
-    "id": "05ec3f57-6273-48d4-9611-f9e3782c75b2",
-    "price": "54.00",
-    "productAdjective": "Handcrafted"
-  },
-  {
-    "name": "Keyboard",
-    "id": "fba63084-a289-4fad-adab-c3de68f77c5b",
-    "price": "767.00",
-    "productAdjective": "Sleek"
-  },
-  {
-    "name": "Table",
-    "id": "15908a6c-3114-4c43-b054-f583cef10630",
-    "price": "894.00",
-    "productAdjective": "Awesome"
-  },
-  {
-    "name": "Car",
-    "id": "fdbceaa9-1af5-4669-92e2-dc93a7af420d",
-    "price": "868.00",
-    "productAdjective": "Tasty"
-  },
-  {
-    "name": "Mouse",
-    "id": "a4819671-b1c9-4c49-aa25-ed218eb5783b",
-    "price": "338.00",
-    "productAdjective": "Licensed"
-  },
-  {
-    "name": "Cheese",
-    "id": "8761df6f-4c0c-447f-b7f4-83b847eb5f56",
-    "price": "268.00",
-    "productAdjective": "Handmade"
-  },
-  {
-    "name": "Computer",
-    "id": "09f7c91a-5a0b-4c8b-bcae-7fbab67f9575",
-    "price": "11.00",
-    "productAdjective": "Unbranded"
-  },
-  {
-    "name": "Salad",
-    "id": "2cf61652-2b80-47ee-9d5c-de06f95b79a8",
-    "price": "269.00",
-    "productAdjective": "Unbranded"
-  },
-  {
-    "name": "Shoes",
-    "id": "a72a4cea-c610-45ff-9eb7-a05e4afb48fd",
-    "price": "323.00",
-    "productAdjective": "Practical"
-  },
-  {
-    "name": "Keyboard",
-    "id": "334de929-1642-4037-9bdc-ad44572b0c3d",
-    "price": "629.00",
-    "productAdjective": "Intelligent"
-  },
-  {
-    "name": "Cheese",
-    "id": "09389756-9b82-4014-bfbd-ac17a458a7f0",
-    "price": "800.00",
-    "productAdjective": "Refined"
-  },
-  {
-    "name": "Pizza",
-    "id": "d5d73829-8736-4c59-b17b-1a6c4e649ddf",
-    "price": "341.00",
-    "productAdjective": "Unbranded"
-  },
-  {
-    "name": "Car",
-    "id": "760f5e56-17f6-4333-9858-11ff77951a00",
-    "price": "100.00",
-    "productAdjective": "Licensed"
-  },
-  {
-    "name": "Pants",
-    "id": "e77a7952-c108-4105-8d88-68d08cef3a90",
-    "price": "392.00",
-    "productAdjective": "Unbranded"
-  },
-  {
-    "name": "Car",
-    "id": "cac47b78-b47d-4a8a-8e02-64bb8912ed65",
-    "price": "567.00",
-    "productAdjective": "Generic"
-  },
-  {
-    "name": "Pants",
-    "id": "6524541b-a5f3-4b54-ae31-a9702ed63e30",
-    "price": "512.00",
-    "productAdjective": "Awesome"
-  },
-  {
-    "name": "Shoes",
-    "id": "d3a117c1-d1b5-4dcd-aaff-943ffc3426d7",
-    "price": "115.00",
-    "productAdjective": "Handcrafted"
-  },
-  {
-    "name": "Salad",
-    "id": "d8a0d384-b6d9-4c72-a166-a02780288129",
-    "price": "576.00",
-    "productAdjective": "Refined"
-  },
-  {
-    "name": "Table",
-    "id": "1e5d81d0-c705-444b-9c59-af29b60b40e2",
-    "price": "621.00",
-    "productAdjective": "Generic"
-  },
-  {
-    "name": "Hat",
-    "id": "89789a0b-9041-43e9-a57c-a8eaaf0ba1ee",
-    "price": "588.00",
-    "productAdjective": "Gorgeous"
-  },
-  {
-    "name": "Towels",
-    "id": "2fd31adb-15ba-481b-9c93-f440609a821a",
-    "price": "610.00",
-    "productAdjective": "Fantastic"
-  },
-  {
-    "name": "Gloves",
-    "id": "db3441c0-e263-416c-be13-dbf6ccf0952c",
-    "price": "508.00",
-    "productAdjective": "Fantastic"
-  },
-  {
-    "name": "Cheese",
-    "id": "58ec85ac-55b7-4894-bd04-83bd1add2827",
-    "price": "201.00",
-    "productAdjective": "Fantastic"
-  },
-  {
-    "name": "Ball",
-    "id": "093d1a80-f809-4bd5-92ed-63e6cd4559f2",
-    "price": "948.00",
-    "productAdjective": "Ergonomic"
-  },
-  {
-    "name": "Pizza",
-    "id": "22eb7e6f-7eb9-4e62-9c2f-775fc8001121",
-    "price": "816.00",
-    "productAdjective": "Generic"
-  },
-  {
-    "name": "Table",
-    "id": "2984b57d-2844-444f-be11-b74dbaf0397a",
-    "price": "333.00",
-    "productAdjective": "Small"
-  },
-  {
-    "name": "Towels",
-    "id": "886010ed-5fe3-44ea-8e6d-ecf18083bba6",
-    "price": "88.00",
-    "productAdjective": "Rustic"
-  },
-  {
-    "name": "Bacon",
-    "id": "8fc1f0e2-3f62-465e-9394-5285630a9aa9",
-    "price": "352.00",
-    "productAdjective": "Incredible"
-  },
-  {
-    "name": "Sausages",
-    "id": "44be7d63-a912-4691-a1cf-6ffdc2cca18f",
-    "price": "252.00",
-    "productAdjective": "Unbranded"
-  },
-  {
-    "name": "Tuna",
-    "id": "85b748a3-9c63-44bc-b272-2408d7105476",
-    "price": "120.00",
-    "productAdjective": "Generic"
-  },
-  {
-    "name": "Pizza",
-    "id": "f7f1ac80-2e95-4d99-a026-2226fb65bcba",
-    "price": "771.00",
-    "productAdjective": "Sleek"
-  },
-  {
-    "name": "Cheese",
-    "id": "6aaad04a-d085-4f54-91df-627b1d0e89a0",
-    "price": "322.00",
-    "productAdjective": "Tasty"
-  },
-  {
-    "name": "Table",
-    "id": "d5c8040f-9a21-4819-93aa-9de2fc296004",
-    "price": "854.00",
-    "productAdjective": "Gorgeous"
-  },
-  {
-    "name": "Computer",
-    "id": "db40ec6f-1ba6-407c-98cf-4f31bc2938fc",
-    "price": "538.00",
-    "productAdjective": "Awesome"
-  },
-  {
-    "name": "Soap",
-    "id": "a82a3a74-cd36-488e-bb50-d01ab0c974e0",
-    "price": "885.00",
-    "productAdjective": "Practical"
+    "categoryId": "778b5e83-dd70-45b3-abb2-3fc0fb0fa46c",
+    "name": "Intelligent Granite Table",
+    "price": 744.0
   }
 ]

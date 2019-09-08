@@ -1,32 +1,14 @@
 [
   {
-    "name": "Practical"
+    "name": "Ergonomic",
+    "id": "778b5e83-dd70-45b3-abb2-3fc0fb0fa46c"
   },
   {
-    "name": "Licensed"
+    "name": "Sleek",
+    "id": "425d97d3-ee6e-4fb9-a3cc-ef30a67f1368"
   },
   {
-    "name": "Refined"
-  },
-  {
-    "name": "Licensed"
-  },
-  {
-    "name": "Small"
-  },
-  {
-    "name": "Sleek"
-  },
-  {
-    "name": "Fantastic"
-  },
-  {
-    "name": "Ergonomic"
-  },
-  {
-    "name": "Sleek"
-  },
-  {
-    "name": "Rustic"
+    "name": "Intelligent",
+    "id": "66b2be0a-eab3-490a-9b1d-6887cff531ab"
   }
 ]

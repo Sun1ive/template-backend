@@ -5,9 +5,7 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
   ManyToMany,
-  JoinTable,
-  PrimaryColumn,
-  Generated
+  JoinTable
 } from 'typeorm';
 import { Category } from './category.entity';
 import { Asset } from './asset.entity';
@@ -20,12 +18,16 @@ export class Product extends BaseEntity {
   @Column({ nullable: false, type: 'text' })
   public name: string;
 
+  @Column({ nullable: false, type: 'decimal' })
+  public price: number;
+
   @ManyToOne(() => Category, category => category.products, {
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE'
+    onUpdate: 'CASCADE',
+    onDelete: 'CASCADE'
   })
   public category: Category;
 
   @ManyToMany(() => Asset, asset => asset.products)
+  @JoinTable()
   public assets: Asset[];
 }
