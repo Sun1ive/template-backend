@@ -1,6 +1,5 @@
 import { Config } from '../src/config';
-import { resolve } from 'path';
-import { readFileSync } from 'fs';
+import { seedDatabase } from '../src/db/init.db';
 import { Category } from '../src/models/category.entity';
 import { Connection, createConnection, getConnection } from 'typeorm';
 import { Product } from '../src/models/product.entity';
@@ -50,5 +49,20 @@ describe('testing database models', () => {
 		expect(categories.length).toBe(0);
 		expect(products.length).toBe(0);
 		expect(countries.length).toBe(0);
+	});
+
+	test('should seed database with test data', async () => {
+		await seedDatabase();
+
+		const categories = await getDataFromRepo(Category);
+		const products = await getDataFromRepo(Product);
+		const countries = await getDataFromRepo(Country);
+
+		expect(categories).toBeDefined();
+		expect(categories.length).not.toEqual(0);
+		expect(products).toBeDefined();
+		expect(products.length).not.toEqual(0);
+		expect(countries).toBeDefined();
+		expect(countries.length).not.toEqual(0);
 	});
 });

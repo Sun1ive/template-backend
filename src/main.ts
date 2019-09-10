@@ -7,13 +7,14 @@ import { pid } from 'process';
 import { Server } from 'http';
 import cluster from 'cluster';
 import { initDB } from './db/connection';
+import { router as categoryRouter } from './routes/categories';
 
 function buildServer(port: number | string = 3001): Server {
 	const app = new ServerBuilder()
 		.addCompression()
 		.addCors()
 		.addLogger('dev')
-		.addRoute('/test', (_, res) => res.send('eeee'))
+		.addRoute('/categories', categoryRouter)
 		.build()
 		.listen(port, () => console.log('Server with pid %s running at port %s', pid, port));
 
