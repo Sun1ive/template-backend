@@ -7,8 +7,9 @@
 		"dev": "tsnd --respawn src/main.ts",
 		"build": "rm -rf dist && tsc --build --force",
 		"prettier": "prettier --write \"src/**/*.ts\"",
-		"lint": "eslint",
-		"test": "jest"
+		"lint": "eslint --fix",
+		"test": "jest",
+		"test:watch": "jest --watch"
 	},
 	"keywords": [],
 	"author": "s.ustinov",
@@ -45,6 +46,6 @@
 		"express": "^4.17.1",
 		"morgan": "^1.9.1",
 		"pg": "^7.12.1",
-		"typeorm": "^0.3.0-alpha.23"
+		"typeorm": "^0.2.18"
 	}
 }

@@ -2,8 +2,8 @@ import { createConnection, Connection } from 'typeorm';
 import { Config } from '../config';
 import { Category } from '../models/category.entity';
 import { Product } from '../models/product.entity';
-import { Asset } from '../models/asset.entity';
 import { seedDatabase } from './init.db';
+import { Country } from '../models/country.entity';
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -18,7 +18,7 @@ export const initDB = async (): Promise<Connection> => {
 		host: Config.databaseOptions.host,
 		synchronize: true,
 		logging: !isProd,
-		entities: [Category, Product, Asset],
+		entities: [Category, Product, Country],
 	};
 
 	const connection = await createConnection({

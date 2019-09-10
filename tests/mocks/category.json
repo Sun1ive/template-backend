@@ -1,0 +1,46 @@
+[
+	{
+		"macroId": 0,
+		"macroName": "(empty)"
+	},
+	{
+		"macroId": 1,
+		"macroName": "Кондитерские изделия"
+	},
+	{
+		"macroId": 2,
+		"macroName": "Крупы, соль, макаронные изделия"
+	},
+	{
+		"macroId": 3,
+		"macroName": "Консервация"
+	},
+	{
+		"macroId": 4,
+		"macroName": "Элитное спиртное"
+	},
+	{
+		"macroId": 5,
+		"macroName": "Алкогольные напитки"
+	},
+	{
+		"macroId": 6,
+		"macroName": "Воды столовые и минеральные"
+	},
+	{
+		"macroId": 7,
+		"macroName": "Чай, кофе"
+	},
+	{
+		"macroId": 8,
+		"macroName": "Соки"
+	},
+	{
+		"macroId": 9,
+		"macroName": "Приправы, специи"
+	},
+	{
+		"macroId": 10,
+		"macroName": "Корм для животных"
+	}
+]

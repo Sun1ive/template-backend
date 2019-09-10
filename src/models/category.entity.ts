@@ -3,8 +3,8 @@ import { Product } from './product.entity';
 
 @Entity()
 export class Category extends BaseEntity {
-	@PrimaryColumn({ type: 'uuid', nullable: false })
-	public id: string;
+	@PrimaryColumn({ type: 'int', nullable: false })
+	public id: number;
 
 	@Column({ nullable: false, type: 'text' })
 	public name: string;
