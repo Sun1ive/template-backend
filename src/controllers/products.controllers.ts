@@ -11,7 +11,9 @@ export const getProducts: RequestHandler = async (req, res) => {
 			.createQueryBuilder()
 			.getMany();
 
-		return res.status(200).json({ data: products });
+		const data = products && Array.isArray(products) ? products : [];
+
+		return res.status(200).json({ data });
 	} catch (error) {
 		console.log('Error occurred in getProducts %s', error.message || error.stack);
 		return res.status(500).json({ error: 'Internal Server Error' });
@@ -36,7 +38,9 @@ export const getProductById: RequestHandler = async (req, res) => {
 			.where('product.lagerId = :id', { id })
 			.getOne();
 
-		return res.status(200).json({ data: [product] });
+		const data = product ? [product] : [];
+
+		return res.status(200).json({ data });
 	} catch (error) {
 		console.log('Error occurred in getProductById %s', error.message || error.stack);
 		return res.status(500).json({ error: 'Internal Server Error' });

@@ -11,7 +11,9 @@ export const getCategories: RequestHandler = async (req, res) => {
 			.createQueryBuilder()
 			.getMany();
 
-		return res.status(200).json({ data: categories });
+		const data = categories && Array.isArray(categories) ? categories : [];
+
+		return res.status(200).json({ data });
 	} catch (error) {
 		console.log('Error occurred in getCategories %s', error.message || error.stack);
 		return res.status(500).json({ error: 'Internal Server Error' });
@@ -36,7 +38,9 @@ export const getCategoryById: RequestHandler = async (req, res) => {
 			.where('category.id = :id', { id })
 			.getOne();
 
-		return res.status(200).json({ data: [category] });
+		const data = category ? [category] : [];
+
+		return res.status(200).json({ data });
 	} catch (error) {
 		console.log('Error occurred in getCategoryById %s', error.message || error.stack);
 		return res.status(500).json({ error: 'Internal Server Error' });
