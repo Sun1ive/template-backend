@@ -3,16 +3,16 @@ import { Product } from './product.entity';
 
 @Entity()
 export class Category extends BaseEntity {
-  @PrimaryColumn({ type: 'uuid', nullable: false })
-  public id: string;
+	@PrimaryColumn({ type: 'uuid', nullable: false })
+	public id: string;
 
-  @Column({ nullable: false, type: 'text' })
-  public name: string;
+	@Column({ nullable: false, type: 'text' })
+	public name: string;
 
-  @OneToMany(() => Product, product => product.category, {
-    cascade: true,
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE'
-  })
-  public products: Product[];
+	@OneToMany(() => Product, (product) => product.category, {
+		cascade: true,
+		onDelete: 'CASCADE',
+		onUpdate: 'CASCADE',
+	})
+	public products: Product[];
 }

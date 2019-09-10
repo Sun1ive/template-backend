@@ -7,55 +7,49 @@ import morgan from 'morgan';
 export type LoggerKeys = 'dev' | 'tiny' | 'common' | 'combined' | 'short';
 
 export interface ServerBuilder {
-  addCors(cors?: cors.CorsOptions): ServerBuilder;
+	addCors(cors?: cors.CorsOptions): ServerBuilder;
 
-  addCompression(): ServerBuilder;
+	addCompression(): ServerBuilder;
 
-  addLogger(type: LoggerKeys, opts?: morgan.Options): ServerBuilder;
+	addLogger(type: LoggerKeys, opts?: morgan.Options): ServerBuilder;
 
-  addRoute(
-    path: string,
-    handler: express.Router | express.Handler
-  ): ServerBuilder;
+	addRoute(path: string, handler: express.Router | express.Handler): ServerBuilder;
 
-  build(): Express;
+	build(): Express;
 }
 
 export class ServerBuilder implements ServerBuilder {
-  private _server: Express;
+	private _server: Express;
 
-  public constructor() {
-    this._server = express();
-  }
+	public constructor() {
+		this._server = express();
+	}
 
-  public addCors(): this {
-    this._server.use(cors());
+	public addCors(): this {
+		this._server.use(cors());
 
-    return this;
-  }
+		return this;
+	}
 
-  public addCompression(): this {
-    this._server.use(compression());
+	public addCompression(): this {
+		this._server.use(compression());
 
-    return this;
-  }
+		return this;
+	}
 
-  public addRoute(
-    path: string,
-    handler: express.Router | express.Handler
-  ): this {
-    this._server.use(path, handler);
+	public addRoute(path: string, handler: express.Router | express.Handler): this {
+		this._server.use(path, handler);
 
-    return this;
-  }
+		return this;
+	}
 
-  public addLogger(type: LoggerKeys, opts?: morgan.Options): this {
-    this._server.use(morgan(type, opts));
+	public addLogger(type: LoggerKeys, opts?: morgan.Options): this {
+		this._server.use(morgan(type, opts));
 
-    return this;
-  }
+		return this;
+	}
 
-  public build(): Express {
-    return this._server;
-  }
+	public build(): Express {
+		return this._server;
+	}
 }

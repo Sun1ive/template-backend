@@ -1,9 +1,4 @@
-import {
-  BaseEntity,
-  PrimaryGeneratedColumn,
-  ManyToMany,
-  Entity
-} from 'typeorm';
+import { BaseEntity, PrimaryGeneratedColumn, ManyToMany, Entity } from 'typeorm';
 import { Product } from './product.entity';
 
 /**
@@ -15,25 +10,25 @@ import { Product } from './product.entity';
  */
 @Entity()
 export class Asset extends BaseEntity {
-  /**
-   *
-   *
-   * @type {string}
-   * @memberof Asset
-   */
-  @PrimaryGeneratedColumn('uuid')
-  public id: string;
+	/**
+	 *
+	 *
+	 * @type {string}
+	 * @memberof Asset
+	 */
+	@PrimaryGeneratedColumn()
+	public id: number;
 
-  /**
-   *
-   *
-   * @type {Product[]}
-   * @memberof Asset
-   */
-  @ManyToMany(() => Product, product => product.assets, {
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-    lazy: true
-  })
-  public products: Product[];
+	/**
+	 *
+	 *
+	 * @type {Product[]}
+	 * @memberof Asset
+	 */
+	@ManyToMany(() => Product, (product) => product.assets, {
+		onDelete: 'CASCADE',
+		onUpdate: 'CASCADE',
+		lazy: true,
+	})
+	public products: Product[];
 }
