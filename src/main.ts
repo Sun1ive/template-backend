@@ -8,6 +8,7 @@ import { Server } from 'http';
 import cluster from 'cluster';
 import { initDB } from './db/connection';
 import { router as categoryRouter } from './routes/categories';
+import { router as productRouter } from './routes/products';
 
 function buildServer(port: number | string = 3001): Server {
 	const app = new ServerBuilder()
@@ -15,6 +16,7 @@ function buildServer(port: number | string = 3001): Server {
 		.addCors()
 		.addLogger('dev')
 		.addRoute('/categories', categoryRouter)
+		.addRoute('/products', productRouter)
 		.build()
 		.listen(port, () => console.log('Server with pid %s running at port %s', pid, port));
 
