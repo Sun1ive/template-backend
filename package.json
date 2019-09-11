@@ -9,7 +9,7 @@
 		"build": "rm -rf dist && tsc --build --force && cp -rv src/db/data dist/db",
 		"prettier": "prettier --write \"src/**/*.ts\"",
 		"lint": "eslint --fix",
-		"test": "jest --collectCoverage",
+		"test": "jest --collectCoverage --verbose",
 		"test:watch": "jest --watch --runInBand --collectCoverage"
 	},
 	"keywords": [],
