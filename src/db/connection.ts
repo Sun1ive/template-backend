@@ -2,7 +2,6 @@ import { createConnection, Connection } from 'typeorm';
 import { Config } from '../config';
 import { Category } from '../models/category.entity';
 import { Product } from '../models/product.entity';
-import { seedDatabase } from './init.db';
 import { Country } from '../models/country.entity';
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -25,8 +24,6 @@ export const initDB = async (): Promise<Connection> => {
 		type: 'postgres',
 		...baseOptions,
 	});
-
-	await seedDatabase();
 
 	return connection;
 };

@@ -2,6 +2,8 @@ import { config } from 'dotenv';
 import { resolve } from 'path';
 const path = process.env.NODE_ENV === 'production' ? resolve('.env.production') : resolve('.env.development');
 
+console.log(path);
+
 config({
 	path,
 });
@@ -12,6 +14,7 @@ export interface IConfig {
 		password: string;
 		user: string;
 		host: string;
+		port: number;
 	};
 
 	serverOptions: {
@@ -26,13 +29,14 @@ export interface IConfig {
 export const Config: IConfig = {
 	databaseOptions: {
 		host: process.env.DB_HOST || '127.0.0.1',
+		port: process.env.DB_PORT ? +process.env.DB_PORT : 5432,
 		name: process.env.DB_NAME || 'shop',
 		password: process.env.DB_PASSWORD || 'postgres',
 		user: process.env.DB_USER || 'postgres',
 	},
 
 	serverOptions: {
-		PORT: process.env.SERVER_PORT || 3344,
+		PORT: process.env.PORT || 3344,
 	},
 
 	common: {

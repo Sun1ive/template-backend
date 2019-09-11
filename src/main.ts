@@ -9,6 +9,7 @@ import cluster from 'cluster';
 import { initDB } from './db/connection';
 import { router as categoryRouter } from './routes/categories';
 import { router as productRouter } from './routes/products';
+import { seedDatabase } from './db/init.db';
 
 function buildServer(port: number | string = 3001): Server {
 	const app = new ServerBuilder()
@@ -23,26 +24,28 @@ function buildServer(port: number | string = 3001): Server {
 	return app;
 }
 
-if (process.env.NODE_ENV === 'production') {
-	if (cluster.isMaster) {
-		for (let i = 0; i < cpus().length - 1; i++) {
-			const worker = cluster.fork();
-
-			worker.on('exit', () => {
-				console.log('Worker with pid %s crashed', worker.process.pid);
-				cluster.fork();
-			});
+(async () => {
+	if (process.env.NODE_ENV === 'production') {
+		if (cluster.isMaster) {
+			await initDB();
+			await seedDatabase();
+			for (let i = 0; i < cpus().length - 1; i++) {
+				const worker = cluster.fork();
+				worker.on('exit', () => {
+					console.log('Worker with pid %s crashed', worker.process.pid);
+					cluster.fork();
+				});
+			}
 		}
-	}
 
-	if (cluster.isWorker) {
-		buildServer(Config.serverOptions.PORT);
-	}
-} else {
-	(async () => {
-		buildServer(Config.serverOptions.PORT);
-
-		process.on('unhandledRejection', console.error);
+		if (cluster.isWorker) {
+			await initDB();
+			process.on('unhandledRejection', console.error);
+			buildServer(Config.serverOptions.PORT);
+		}
+	} else {
 		await initDB();
-	})();
-}
+		await seedDatabase();
+		buildServer(Config.serverOptions.PORT);
+	}
+})();

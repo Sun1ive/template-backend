@@ -1,11 +1,11 @@
 import { Config } from '../src/config';
 import { seedDatabase } from '../src/db/init.db';
 import { Category } from '../src/models/category.entity';
-import { Connection, createConnection, getConnection } from 'typeorm';
+import { Connection, createConnection, getConnection, BaseEntity } from 'typeorm';
 import { Product } from '../src/models/product.entity';
 import { Country } from '../src/models/country.entity';
 
-function getDataFromRepo<T extends typeof Category | typeof Country | typeof Product>(entity: T) {
+function getDataFromRepo<T extends typeof BaseEntity>(entity: T) {
 	return getConnection()
 		.getRepository(entity)
 		.find();

@@ -34,6 +34,7 @@ describe('testing database models', () => {
 	afterAll(async () => {
 		if (connection) {
 			await connection.close();
+			server.close();
 		}
 	});
 
