@@ -2,8 +2,6 @@ import { config } from 'dotenv';
 import { resolve } from 'path';
 const path = process.env.NODE_ENV === 'production' ? resolve('.env.production') : resolve('.env.development');
 
-console.log(path);
-
 config({
 	path,
 });

@@ -24,18 +24,12 @@ export const getProductById: RequestHandler = async (req, res) => {
 	try {
 		const { id } = req.params;
 
-		if (!id) {
-			return res.status(403).json({
-				error: 'Bad request, id was not provided',
-			});
-		}
-
 		const connection = getConnection();
 
 		const product = await connection
-			.getRepository(Product)
-			.createQueryBuilder('product')
-			.where('product.lagerId = :id', { id })
+			.createQueryBuilder(Product, 'product')
+			.innerJoinAndSelect('product.country', 'country')
+			.where('product.id = :id', { id })
 			.getOne();
 
 		const data = product ? [product] : [];

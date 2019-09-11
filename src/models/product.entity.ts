@@ -5,19 +5,19 @@ import { Country } from './country.entity';
 @Entity()
 export class Product extends BaseEntity {
 	@PrimaryColumn()
-	public lagerId: number;
+	public id: number;
 
 	@Column({ type: 'text', nullable: true })
-	public lagerName: string;
+	public name: string;
 
 	@Column({ type: 'text', nullable: true })
-	public lagerUnit: string;
+	public unit: string;
 
 	@Column({ type: 'decimal', nullable: true })
-	public lagerPrice: number;
+	public price: number;
 
 	@Column({ type: 'text', nullable: true })
-	public lagerNameUA: string;
+	public nameUA: string;
 
 	@ManyToOne(() => Category, (category) => category.products, {
 		onDelete: 'CASCADE',

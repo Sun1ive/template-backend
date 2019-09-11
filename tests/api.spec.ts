@@ -40,8 +40,8 @@ describe('testing database models', () => {
 
 	test('should getCategories', async () => {
 		const app = agent(server);
-
 		const response = await app.get('/categories');
+
 		expect(response.status).toBe(200);
 		expect(response.body.data).toBeDefined();
 		expect(Array.isArray(response.body.data)).toBeTruthy();
@@ -49,29 +49,50 @@ describe('testing database models', () => {
 
 	test('should getCategoryById', async () => {
 		const app = agent(server);
-
 		const response = await app.get('/categories/1');
+
 		expect(response.status).toBe(200);
 		expect(response.body.data).toBeDefined();
 		expect(Array.isArray(response.body.data)).toBeTruthy();
+		expect(response.body.data[0].id).toBeDefined();
+		expect(response.body.data[0].products).toBeDefined();
+	});
+
+	test('should receive error from  getCategoryById', async () => {
+		const app = agent(server);
+		const response = await app.get('/categories/nan');
+
+		expect(response.status).toBe(500);
+		expect(response.body.error).toBeDefined();
+		expect(response.body.error).toBe('Internal Server Error');
 	});
 
 	test('should getProducts', async () => {
 		const app = agent(server);
-
 		const response = await app.get('/products');
+
 		expect(response.status).toBe(200);
 		expect(response.body.data).toBeDefined();
 		expect(Array.isArray(response.body.data)).toBeTruthy();
 	});
 
+	test('should receive error from getProductById', async () => {
+		const app = agent(server);
+		const response = await app.get('/products/nan');
+
+		expect(response.status).toBe(500);
+		expect(response.body.error).toBeDefined();
+		expect(response.body.error).toBe('Internal Server Error');
+	});
+
 	test('should getProductById', async () => {
 		const app = agent(server);
-
 		const response = await app.get('/products/35');
+
 		expect(response.status).toBe(200);
 		expect(response.body.data).toBeDefined();
 		expect(Array.isArray(response.body.data)).toBeTruthy();
-		expect(response.body.data[0].lagerId).toBe(35);
+		expect(response.body.data[0].id).toBe(35);
+		expect(response.body.data[0].country).toBeDefined();
 	});
 });

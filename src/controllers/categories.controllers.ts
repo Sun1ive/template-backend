@@ -23,18 +23,11 @@ export const getCategories: RequestHandler = async (req, res) => {
 export const getCategoryById: RequestHandler = async (req, res) => {
 	try {
 		const { id } = req.params;
-
-		if (!id) {
-			return res.status(403).json({
-				error: 'Bad request, id was not provided',
-			});
-		}
-
 		const connection = getConnection();
 
 		const category = await connection
-			.getRepository(Category)
-			.createQueryBuilder('category')
+			.createQueryBuilder(Category, 'category')
+			.innerJoinAndSelect('category.products', 'products')
 			.where('category.id = :id', { id })
 			.getOne();
 
