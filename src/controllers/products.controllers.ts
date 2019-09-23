@@ -4,11 +4,9 @@ import { Product } from '../models/product.entity';
 
 export const getProducts: RequestHandler = async (req, res) => {
 	try {
-		const connection = getConnection();
-
-		const products = await connection
-			.getRepository(Product)
-			.createQueryBuilder()
+		const products = await getConnection()
+			.createQueryBuilder(Product, 'product')
+			.innerJoinAndSelect('product.country', 'country')
 			.getMany();
 
 		const data = products && Array.isArray(products) ? products : [];
@@ -24,9 +22,7 @@ export const getProductById: RequestHandler = async (req, res) => {
 	try {
 		const { id } = req.params;
 
-		const connection = getConnection();
-
-		const product = await connection
+		const product = await getConnection()
 			.createQueryBuilder(Product, 'product')
 			.innerJoinAndSelect('product.country', 'country')
 			.where('product.id = :id', { id })
